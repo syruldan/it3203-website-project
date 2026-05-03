@@ -12,26 +12,25 @@ function gradeQuiz() {
     const q1 = document.getElementById('q1').value.trim().toLowerCase();
     if (q1 === "hypertext markup language") score++;
 
-    // Q2: Radio Button (Single Choice)
+    // Q2: Radio Button
     const q2 = document.querySelector('input[name="q2"]:checked');
     if (q2 && q2.value === "css") score++;
 
-    // Q3: Radio Button (Single Choice)
+    // Q3: Radio Button
     const q3 = document.querySelector('input[name="q3"]:checked');
     if (q3 && q3.value === "backlinks") score++;
 
-    // Q4: Checkboxes (Multiple Choice)
-    // Correct answers are 'title' and 'meta'
+    // Q4: Checkboxes (Must select Title Tags and Meta Descriptions, but NOT Social Media)
     const q4a = document.getElementById('q4a').checked;
     const q4b = document.getElementById('q4b').checked;
     const q4c = document.getElementById('q4c').checked;
     if (q4a && q4b && !q4c) score++;
 
-    // Q5: Radio Button (Single Choice)
+    // Q5: Radio Button
     const q5 = document.querySelector('input[name="q5"]:checked');
     if (q5 && q5.value === "crawling") score++;
 
-    // Results logic
+    // Results feedback logic
     let feedback = "";
     if (score === totalQuestions) {
         feedback = "Excellent! You have a strong grasp of SEO fundamentals.";
@@ -45,7 +44,7 @@ function gradeQuiz() {
         <div style="margin-top: 20px; padding: 20px; border: 2px solid var(--accent); background: #fff; border-radius: 8px;">
             <h2 style="color: var(--primary);">Your Score: ${score} / ${totalQuestions}</h2>
             <p>${feedback}</p>
-            <button onclick="location.reload()" style="margin-top:10px; cursor:pointer; padding:5px 10px;">Retry Quiz</button>
+            <button type="button" onclick="location.reload()" style="margin-top:10px; cursor:pointer; padding:8px 16px; background-color: #333; color: white; border: none; border-radius: 4px;">Retry Quiz</button>
         </div>
     `;
 }
