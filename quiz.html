@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Basics | Project Milestone 3</title>
-    <!-- Link to your single external CSS file -->
+    <title>SEO Quiz</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Link to your external JS file for the menu and quiz -->
     <script src="js/quiz.js" defer></script>
 </head>
 <body>
-
-    <!-- Consistent Navigation Menu -->
     <nav>
         <div class="menu-toggle" onclick="toggleMenu()">Menu &#9776;</div>
         <ul id="nav-list">
@@ -24,16 +20,19 @@
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
-<section>
-    <h1>SEO Assessment</h1>
-    <form id="quizForm">
-        <h3>1. What does HTML stand for?</h3>
-        <input type="text" id="q1">
-        <h3>2. Which file controls the layout?</h3>
-        <input type="radio" name="q2" value="css"> CSS
-        <input type="radio" name="q2" value="html"> HTML
-        <br><br>
-        <button type="button" onclick="gradeQuiz()">Submit</button>
-    </form>
-    <div id="results"></div>
-</section>
+    <section>
+        <h1>Knowledge Check</h1>
+        <form id="quizForm">
+            <p>1. What does HTML stand for?</p>
+            <input type="text" id="q1">
+            <p>2. Which file type handles styling?</p>
+            <input type="radio" name="q2" value="css"> CSS
+            <input type="radio" name="q2" value="html"> HTML
+            <br><br>
+            <button type="button" onclick="gradeQuiz()">Grade Quiz</button>
+        </form>
+        <div id="results"></div>
+    </section>
+    <footer><p>IT 3203 Project</p></footer>
+</body>
+</html>
