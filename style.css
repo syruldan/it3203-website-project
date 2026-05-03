@@ -1,38 +1,87 @@
-body {
-    font-family: Arial;
-    margin: 0;
-    background-color: #f4f4f4;
+/* style_2.css - FULL REPLACEMENT */
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --bg: #f4f4f4;
+    --white: #ffffff;
 }
 
-#header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    line-height: 1.6;
+    color: #333;
+}
+
+/* --- Responsive Navigation --- */
+nav {
+    background-color: #222;
+    color: var(--white);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
     text-align: center;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 5px;
 }
 
 nav ul {
-    display: flex;
+    display: none; /* Mobile first: hidden */
+    flex-direction: column;
     list-style: none;
-    background-color: #222;
-    padding: 10px;
 }
 
-nav ul li {
-    margin-right: 15px;
-}
+nav ul.active { display: flex; } /* Toggled by JavaScript */
 
 nav ul li a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid #444;
 }
 
-nav ul li a:hover {
-    color: yellow;
+/* --- Responsive Elements --- */
+#header {
+    background-color: #333;
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
 }
 
 section {
+    background: var(--white);
     border: 1px solid #ccc;
-    margin: 20px;
-    padding: 15px;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+img { max-width: 100%; height: auto; display: block; margin: 15px auto; }
+
+.table-wrapper { overflow-x: auto; } /* Mobile best practice for tables */
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+
+th { background-color: var(--primary); color: white; }
+
+/* --- Media Query for Desktop (Width > 768px) --- */
+@media (min-width: 768px) {
+    .menu-toggle { display: none; }
+    nav ul { display: flex; flex-direction: row; justify-content: center; }
+    nav ul li a { border-bottom: none; }
+    .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin: 20px; }
 }
