@@ -64,3 +64,21 @@ nav ul li a {
 header { background: #333; color: white; padding: 60px 20px; text-align: center; }
 section { background: var(--white); border: 1px solid #ddd; margin-bottom: 20px; padding: 25px; border-radius: 8px; }
 footer { text-align: center; padding: 20px; }
+
+.question {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.question h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.question label {
+    display: inline-block;
+    margin: 5px 0;
+    cursor: pointer;
+}
