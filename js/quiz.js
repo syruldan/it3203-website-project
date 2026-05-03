@@ -1,54 +1,23 @@
-// Grades quiz and shows results
-function gradeQuiz(){
+/* js/quiz.js - FULL REPLACEMENT */
 
-let score = 0;
-let results = "";
-
-if(document.getElementById("q1").value.toLowerCase()
-==="hypertext markup language"){
-score++;
-results+="Q1 Correct<br>";
-}else{
-results+="Q1 Incorrect<br>";
+// Toggles the visibility of the nav menu on mobile devices
+function toggleMenu() {
+    const navList = document.getElementById('nav-list');
+    navList.classList.toggle('active');
 }
 
-if(document.querySelector('input[name="q2"]:checked')?.value==="css"){
-score++;
-results+="Q2 Correct<br>";
-}else{
-results+="Q2 Incorrect<br>";
-}
+// Validates the quiz and provides feedback
+function gradeQuiz() {
+    let score = 0;
+    const results = document.getElementById('results');
+    
+    // Q1 Check
+    const q1 = document.getElementById('q1').value.trim().toLowerCase();
+    if (q1 === "hypertext markup language") score++;
 
-if(document.querySelector('input[name="q3"]:checked')?.value==="interactivity"){
-score++;
-results+="Q3 Correct<br>";
-}else{
-results+="Q3 Incorrect<br>";
-}
+    // Q2 Check
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    if (q2 && q2.value === "css") score++;
 
-if(document.querySelector('input[name="q4"]:checked')?.value==="a"){
-score++;
-results+="Q4 Correct<br>";
-}else{
-results+="Q4 Incorrect<br>";
-}
-
-let checks=document.querySelectorAll('input[name="q5"]:checked');
-if(checks.length===2){
-score++;
-results+="Q5 Correct<br>";
-}else{
-results+="Q5 Incorrect<br>";
-}
-
-let pass = score>=3 ? "PASS" : "FAIL";
-
-document.getElementById("results").innerHTML=
-`<h2>${pass}</h2>
-<p>Score: ${score}/5</p>
-${results}`;
-}
-
-function resetQuiz(){
-document.getElementById("results").innerHTML="";
+    results.innerHTML = `<h3 style="color: ${score === 2 ? 'green' : 'red'}">Result: ${score}/2 Correct</h3>`;
 }
